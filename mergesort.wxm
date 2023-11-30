@@ -1,0 +1,18 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+merge(a, b) :=if length(a) * length(b) = 0 then append(a, b) 
+else if first(a) < first(b) then cons(first(a), merge(rest(a), b)) 
+else cons(first(b), merge(a, rest(b)))$
+
+mergesort(list) :=block(
+    [len: length(list), h: entier(length(list)/2)],
+    if len > 1 then merge(mergesort(rest(list, h-len)), mergesort(rest(list, h)))
+    else list
+)$
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$

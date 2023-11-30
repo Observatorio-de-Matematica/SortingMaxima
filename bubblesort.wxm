@@ -1,0 +1,22 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+bubblesort(list) :=block(
+    [len: length(list)],
+    for i:1 thru len do (
+        for j:1 thru (len - 1) do (
+            if (list[j] > list[j + 1]) then (
+                temp:list[j],
+                list[j]:list[j + 1],
+                list[j + 1]:temp
+            )
+        )
+    ),
+    list
+  )$
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$

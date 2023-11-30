@@ -1,0 +1,22 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+insertionsort(list) :=block(
+    [len: length(list)],
+    for i:2 thru len do (
+        key:list[i],
+        j:(i - 1),
+        while j >= 1 and list[j] > key do (
+            list[j + 1]:list[j],
+            j:(j - 1)
+        ),
+        list[j + 1]:key
+    ),
+    list
+)$
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$
