@@ -1,0 +1,21 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+gnome_sort(list):=block(
+    index : 1,
+    while index <= length(list) do (
+        if index = 1 or list[index-1] <= list[index] then index: index+1 else (
+            temp:list[index],
+            list[index]:list[index-1],
+            list[index-1]:temp,
+            index:index-1
+        )
+    ),
+    list
+)$
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$

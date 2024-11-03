@@ -1,0 +1,27 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+shellsort(lst):=
+    block(
+        n:length(lst),
+        gap: floor(n / 2),
+        while gap > 0 do (
+            for i: gap thru n do (
+                temp: lst[i],
+                j: i,
+                while j >= gap and lst[j - gap+1] > temp do (
+                    lst[j]: lst[j - gap+1],
+                    j: j - gap+1
+                ),
+                lst[j]: temp
+            ),
+            gap: floor(gap / 2)
+        ),
+        lst
+    );
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$

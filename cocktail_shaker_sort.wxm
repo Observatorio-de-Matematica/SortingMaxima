@@ -1,0 +1,36 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+cocktail_shaker_sort(lst) :=block(
+    n: length(lst), swapped: true, start: 1, end: n,
+    while swapped do (
+        swapped: false,
+        for i: start thru end-1 do (
+            if lst[i] > lst[i+1] then (
+                temp: lst[i],
+                lst[i]: lst[i+1],
+                lst[i+1]: temp,
+                swapped: true
+            )
+        ),
+        if not swapped then lst,
+        swapped: false,
+        end: end - 1,
+        for i: end step -1 thru start+1 do (
+            if lst[i] < lst[i-1] then (
+                temp: lst[i],
+                lst[i]: lst[i-1],
+                lst[i-1]: temp,
+                swapped: true
+            )
+        ),
+        start: start + 1
+    ),
+    lst
+)$
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$
