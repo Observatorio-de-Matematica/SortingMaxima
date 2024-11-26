@@ -17,6 +17,29 @@ bubblesort(list) :=block(
 /* [wxMaxima: input   end   ] */
 
 
+/* [wxMaxima: input   start ] */
+load(linearalgebra)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+swap_in_list(lst,i,j):=list_matrix_entries(columnswap(matrix(lst),i,j))$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+alt_bubblesort(list) :=block(
+    [len: length(list)],
+    for i:1 thru len do (
+        for j:1 thru (len - 1) do (
+            if (list[j] > list[j + 1]) then list:swap_in_list(list,j,j+1)
+        )
+    ),
+    list
+)$
+/* [wxMaxima: input   end   ] */
+
+
 
 /* Old versions of Maxima abort on loading files that end in a comment. */
 "Created with wxMaxima 22.04.0"$
